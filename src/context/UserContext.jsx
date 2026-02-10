@@ -142,7 +142,8 @@ export const UserProvider = ({ children }) => {
   }, [session]);
 
   // --- Reset / Logout ---
-  const resetUser = useCallback(async () => {
+  // --- Reset / Logout ---
+  const logout = useCallback(async () => {
     try {
       await signOut();
     } catch (err) {
