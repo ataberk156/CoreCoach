@@ -112,10 +112,10 @@ const WorkoutPage = () => {
                 <div>
                     {day && (
                         <div className="card">
-                            <div className="card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <div className="card-header card-header-flex">
                                 <div>
                                     <h2 style={{ fontSize: '1.2rem' }}>{day.focus}</h2>
-                                    <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', marginTop: 2 }}>{day.day} — {totalExercises} hareket, ~{estDuration} dk</p>
+                                    <p className="text-dim-small" style={{ marginTop: 2 }}>{day.day} — {totalExercises} hareket, ~{estDuration} dk</p>
                                 </div>
                                 <button className="btn btn-ghost btn-sm" onClick={() => setAddingNew(!addingNew)}>
                                     <Plus size={14} /> Ekle
@@ -130,11 +130,11 @@ const WorkoutPage = () => {
                                 {exercises.map((ex, i) => (
                                     <React.Fragment key={i}>
                                         <div className={`exercise-row ${editingIdx === i ? 'editing' : ''}`}>
-                                            <span style={{ fontWeight: 500 }}>{ex.name}</span>
+                                            <span className="font-medium">{ex.name}</span>
                                             <span>{ex.sets} × {ex.reps}</span>
-                                            <span style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>{ex.tempo || '—'}</span>
+                                            <span className="text-dim-small">{ex.tempo || '—'}</span>
                                             <span className="badge-rest">{ex.rest || '—'}</span>
-                                            <span style={{ display: 'flex', gap: 4 }}>
+                                            <span className="flex-gap-xs">
                                                 <button className="icon-btn" title="Manuel düzenle" onClick={() => startManualEdit(i)}>
                                                     <Edit3 size={13} />
                                                 </button>

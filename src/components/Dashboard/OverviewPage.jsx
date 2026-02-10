@@ -58,17 +58,17 @@ const OverviewPage = ({ onNavigate }) => {
                     {todayWorkout?.exercises && (
                         <>
                             <div className="grid-3" style={{ margin: '1.25rem 0' }}>
-                                <div style={{ background: 'var(--bg-surface)', padding: '0.75rem', borderRadius: 'var(--radius)', textAlign: 'center' }}>
-                                    <div style={{ fontSize: '0.6rem', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 4 }}>Hacim</div>
-                                    <div style={{ fontWeight: 700, fontFamily: 'var(--font-display)' }}>{todayWorkout.exercises.reduce((a, e) => a + (e.sets || 0), 0) * 50} kg</div>
+                                <div className="stat-box">
+                                    <div className="stat-box-label">Hacim</div>
+                                    <div className="stat-box-value">{todayWorkout.exercises.reduce((a, e) => a + (e.sets || 0), 0) * 50} kg</div>
                                 </div>
-                                <div style={{ background: 'var(--bg-surface)', padding: '0.75rem', borderRadius: 'var(--radius)', textAlign: 'center' }}>
-                                    <div style={{ fontSize: '0.6rem', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 4 }}>Yoğunluk</div>
-                                    <div style={{ fontWeight: 700, fontFamily: 'var(--font-display)' }}>Yüksek</div>
+                                <div className="stat-box">
+                                    <div className="stat-box-label">Yoğunluk</div>
+                                    <div className="stat-box-value">Yüksek</div>
                                 </div>
-                                <div style={{ background: 'var(--bg-surface)', padding: '0.75rem', borderRadius: 'var(--radius)', textAlign: 'center' }}>
-                                    <div style={{ fontSize: '0.6rem', color: 'var(--text-dim)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 4 }}>Hareketler</div>
-                                    <div style={{ fontWeight: 700, fontFamily: 'var(--font-display)' }}>{todayWorkout.exercises.length} Set</div>
+                                <div className="stat-box">
+                                    <div className="stat-box-label">Hareketler</div>
+                                    <div className="stat-box-value">{todayWorkout.exercises.length} Set</div>
                                 </div>
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

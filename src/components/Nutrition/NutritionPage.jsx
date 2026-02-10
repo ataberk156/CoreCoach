@@ -171,10 +171,10 @@ const NutritionPage = () => {
                                     <div className="food-result">
                                         <h4 style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: 8 }}><CheckCircle size={18} color="var(--success)" /> {scanResult.name}</h4>
                                         <div className="grid-4">
-                                            <div style={{ textAlign: 'center' }}><div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--warning)' }}>{scanResult.calories}</div><div style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>kcal</div></div>
-                                            <div style={{ textAlign: 'center' }}><div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--primary)' }}>{scanResult.protein}g</div><div style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>Protein</div></div>
-                                            <div style={{ textAlign: 'center' }}><div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--secondary)' }}>{scanResult.carbs}g</div><div style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>Karb</div></div>
-                                            <div style={{ textAlign: 'center' }}><div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--accent)' }}>{scanResult.fats}g</div><div style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>Yağ</div></div>
+                                            <div style={{ textAlign: 'center' }}><div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--warning)' }}>{scanResult.calories}</div><div className="text-dim-small">kcal</div></div>
+                                            <div style={{ textAlign: 'center' }}><div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--primary)' }}>{scanResult.protein}g</div><div className="text-dim-small">Protein</div></div>
+                                            <div style={{ textAlign: 'center' }}><div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--secondary)' }}>{scanResult.carbs}g</div><div className="text-dim-small">Karb</div></div>
+                                            <div style={{ textAlign: 'center' }}><div style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--accent)' }}>{scanResult.fats}g</div><div className="text-dim-small">Yağ</div></div>
                                         </div>
                                     </div>
                                 )}

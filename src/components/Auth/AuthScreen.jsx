@@ -48,18 +48,16 @@ const AuthScreen = () => {
                 Premium Fitness Intelligence
             </p>
 
-            <div className="onboarding-container" style={{ maxWidth: '420px', minHeight: 'auto' }}>
-                <div style={{ display: 'flex', marginBottom: '2rem', borderRadius: 'var(--radius)', overflow: 'hidden', border: '1px solid var(--border)' }}>
+            <div className="onboarding-container">
+                <div className="auth-tabs">
                     <button
                         onClick={() => { setMode('login'); setError(''); }}
-                        className={mode === 'login' ? 'btn btn-primary' : 'btn btn-ghost'}
-                        style={{ flex: 1, borderRadius: 0 }}>
+                        className={`btn auth-tab-btn ${mode === 'login' ? 'btn-primary' : 'btn-ghost'}`}>
                         <LogIn size={16} /> Giriş Yap
                     </button>
                     <button
                         onClick={() => { setMode('signup'); setError(''); }}
-                        className={mode === 'signup' ? 'btn btn-primary' : 'btn btn-ghost'}
-                        style={{ flex: 1, borderRadius: 0 }}>
+                        className={`btn auth-tab-btn ${mode === 'signup' ? 'btn-primary' : 'btn-ghost'}`}>
                         <UserPlus size={16} /> Kayıt Ol
                     </button>
                 </div>
@@ -78,28 +76,18 @@ const AuthScreen = () => {
                     </div>
 
                     {error && (
-                        <div style={{
-                            padding: '0.75rem 1rem', borderRadius: 'var(--radius)', marginBottom: '1rem',
-                            background: 'rgba(var(--accent-rgb), 0.08)', border: '1px solid rgba(var(--accent-rgb), 0.2)',
-                            color: 'var(--accent)', fontSize: '0.85rem',
-                            display: 'flex', alignItems: 'center', gap: '0.5rem',
-                        }}>
+                        <div className="alert alert-error">
                             <AlertCircle size={16} /> {error}
                         </div>
                     )}
 
                     {success && (
-                        <div style={{
-                            padding: '0.75rem 1rem', borderRadius: 'var(--radius)', marginBottom: '1rem',
-                            background: 'rgba(var(--success-rgb), 0.08)', border: '1px solid rgba(var(--success-rgb), 0.2)',
-                            color: 'var(--success)', fontSize: '0.85rem',
-                        }}>
-                            ✅ {success}
+                        <div className="alert alert-success">
+                            <CheckCircle size={16} /> {success}
                         </div>
                     )}
 
-                    <button type="submit" className="btn btn-primary btn-lg" disabled={loading}
-                        style={{ width: '100%' }}>
+                    <button type="submit" className="btn btn-primary btn-lg input-full" disabled={loading}>
                         {loading ? (
                             <div className="loading-dots"><span></span><span></span><span></span></div>
                         ) : mode === 'login' ? (

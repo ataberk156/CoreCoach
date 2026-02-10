@@ -8,6 +8,7 @@ import WorkoutPage from './components/Workout/WorkoutPage';
 import NutritionPage from './components/Nutrition/NutritionPage';
 import ProgressPage from './components/Progress/ProgressPage';
 import ChatView from './components/Dashboard/ChatView';
+import BottomNav from './components/Dashboard/BottomNav';
 import SettingsView from './components/Dashboard/SettingsView';
 import { generateWorkoutPlan, generateNutritionPlan } from './services/ai';
 
