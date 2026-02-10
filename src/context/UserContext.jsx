@@ -16,6 +16,7 @@ export const UserProvider = ({ children }) => {
   const [plans, setPlans] = useState(null);
   const [progress, setProgress] = useState([]);
   const [chatHistory, setChatHistory] = useState([]);
+  const [userDataLoading, setUserDataLoading] = useState(true);
 
   // --- Auth listener ---
   useEffect(() => {
@@ -27,6 +28,7 @@ export const UserProvider = ({ children }) => {
         setPlans(null);
         setProgress([]);
         setChatHistory([]);
+        setUserDataLoading(false);
       }
     });
 
@@ -34,6 +36,7 @@ export const UserProvider = ({ children }) => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setAuthLoading(false);
+      if (!session) setUserDataLoading(false);
     });
 
     return () => subscription.unsubscribe();
@@ -44,6 +47,7 @@ export const UserProvider = ({ children }) => {
     if (!session?.user?.id) return;
 
     const loadUserData = async () => {
+      setUserDataLoading(true);
       try {
         const profile = await getProfile(session.user.id);
         const userData = profileToUser(profile);
@@ -72,6 +76,8 @@ export const UserProvider = ({ children }) => {
       } catch (err) {
         console.error('Error loading user data:', err);
         setOnboardingStep('onboarding');
+      } finally {
+        setUserDataLoading(false);
       }
     };
 
@@ -152,13 +158,20 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider value={{
-      session, authLoading,
-      user, updateUserInfo,
-      onboardingStep, setOnboardingStep,
-      plans, updatePlans,
-      progress, addProgressEntry,
-      chatHistory, addChatMessage,
-      resetUser,
+      session,
+      authLoading,
+      userDataLoading,
+      user,
+      updateUserInfo,
+      onboardingStep,
+      setOnboardingStep,
+      plans,
+      updatePlans,
+      progress,
+      addProgressEntry,
+      chatHistory,
+      addChatMessage,
+      logout
     }}>
       {children}
     </UserContext.Provider>

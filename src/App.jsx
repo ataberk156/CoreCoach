@@ -12,14 +12,15 @@ import SettingsView from './components/Dashboard/SettingsView';
 import { generateWorkoutPlan, generateNutritionPlan } from './services/ai';
 
 function App() {
-  const { session, authLoading, onboardingStep, user, plans, updatePlans } = useUser();
+  const { session, authLoading, userDataLoading, onboardingStep, user, plans, updatePlans } = useUser();
   const [activeTab, setActiveTab] = useState('overview');
   const [plansLoading, setPlansLoading] = useState(false);
 
   // Generate plans when user first reaches dashboard without plans
   useEffect(() => {
     const fetchPlans = async () => {
-      if (onboardingStep === 'dashboard' && !plans && user && !plansLoading) {
+      // Only generate if: dashboard active, NO plans exist, user exists, NOT currently loading data, NOT currently generating
+      if (onboardingStep === 'dashboard' && !plans && user && !userDataLoading && !plansLoading) {
         setPlansLoading(true);
         try {
           const [workout, nutrition] = await Promise.all([
@@ -38,11 +39,11 @@ function App() {
   }, [onboardingStep, plans, user]);
 
   // Auth loading
-  if (authLoading) {
+  if (authLoading || userDataLoading) {
     return (
       <div className="loading-screen">
         <div className="loading-dots"><span></span><span></span><span></span></div>
-        <p>Bağlanıyor...</p>
+        <p>Veriler yükleniyor...</p>
       </div>
     );
   }
