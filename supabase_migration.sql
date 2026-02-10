@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS public.profiles (
   activity_level INTEGER DEFAULT 3,
   experience TEXT DEFAULT 'orta',
   equipment TEXT DEFAULT 'gym',
+  health_notes TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );

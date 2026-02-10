@@ -59,6 +59,7 @@ export const upsertProfile = async (userId, profileData) => {
             activity_level: profileData.activityLevel ? parseInt(profileData.activityLevel) : 3,
             experience: profileData.experience || 'orta',
             equipment: profileData.equipment || 'gym',
+            health_notes: profileData.healthNotes,
             updated_at: new Date().toISOString(),
         })
         .select()
@@ -80,6 +81,7 @@ const profileToUser = (row) => {
         activityLevel: row.activity_level,
         experience: row.experience,
         equipment: row.equipment,
+        healthNotes: row.health_notes,
     };
 };
 

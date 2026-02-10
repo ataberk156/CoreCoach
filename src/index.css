@@ -510,7 +510,7 @@ button {
   width: 100%;
 }
 
-.exercise-table-header {
+.exercise-header {
   display: grid;
   grid-template-columns: 1.5fr 1fr 0.8fr 0.8fr 100px;
   padding: 0.5rem 0.5rem;
@@ -522,7 +522,7 @@ button {
   color: var(--text-dim);
 }
 
-.exercise-table-row {
+.exercise-row {
   display: grid;
   grid-template-columns: 1.5fr 1fr 0.8fr 0.8fr 100px;
   padding: 1rem 0.5rem;
